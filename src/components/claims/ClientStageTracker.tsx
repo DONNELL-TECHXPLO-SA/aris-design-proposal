@@ -16,7 +16,7 @@ export default function ClientStageTracker({ status, blocking }: { status: Claim
   const finalised = current === CLIENT_STAGES.length - 1;
 
   return (
-    <ol className="grid grid-cols-5" aria-label="Claim progress">
+    <ol className="grid grid-cols-5 gap-x-[4px]" aria-label="Claim progress">
       {CLIENT_STAGES.map((stage, i) => {
         const done = i < current || finalised;
         const isCurrent = i === current && !finalised;

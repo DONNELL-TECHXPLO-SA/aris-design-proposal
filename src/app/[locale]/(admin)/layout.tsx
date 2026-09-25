@@ -21,9 +21,9 @@ export default function AdminLayout({
   return (
     <RequireAuth portal="admin">
       <div className="h-dvh overflow-hidden bg-page sm:p-[12px] lg:p-[24px] xl:p-[16px] 2xl:p-[20px] 3xl:px-[100px] 3xl:py-[110px]">
-        <div className="mx-auto flex h-full max-w-[1800px] flex-col bg-frame p-[16px] sm:rounded-frame md:p-[25px] xl:p-[20px] 3xl:p-[25px]">
+        <div className="mx-auto flex h-full max-w-[1800px] flex-col bg-frame p-[12px] sm:rounded-frame sm:p-[16px] md:p-[25px] xl:p-[20px] 3xl:p-[25px]">
           <AppHeader />
-          <div className="mt-[25px] flex min-h-0 flex-1 gap-[25px] xl:mt-[20px] xl:gap-[20px] 3xl:mt-[40px] 3xl:gap-[25px]">
+          <div className="mt-[16px] flex min-h-0 flex-1 gap-[25px] md:mt-[25px] xl:mt-[20px] xl:gap-[20px] 3xl:mt-[40px] 3xl:gap-[25px]">
             <AppSidebar />
             <main className="custom-scrollbar min-w-0 flex-1 overflow-y-auto">{children}</main>
           </div>

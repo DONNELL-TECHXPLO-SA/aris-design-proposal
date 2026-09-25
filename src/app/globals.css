@@ -105,25 +105,42 @@
 
 /*
   Type scale. Finexy's sizes are tuned for a 2000px-wide canvas; on ordinary laptop
-  viewports they read as ~130% zoom. `text-fx-N` is the reference Npx size: unchanged
-  below xl (mobile/tablet, keeps inputs >=16px so iOS doesn't zoom on focus) and at
-  3xl, stepped down on 1280-1999px desktops.
+  viewports they read as ~130% zoom. `text-fx-N` is the reference Npx size on tablets
+  (768-1279px) and at 3xl, stepped down on 1280-1999px desktops, and stepped down harder
+  on phones (<768px) where the reference sizes blow headings and tables out of the
+  viewport. fx-17 (the input size) never drops below 16px so iOS doesn't zoom on focus.
 */
 :root {
   --fx-t10: 10px;
   --fx-t11: 11px;
   --fx-t12: 12px;
-  --fx-t13: 13px;
-  --fx-t14: 14px;
-  --fx-t15: 15px;
-  --fx-t17: 17px;
-  --fx-t20: 20px;
-  --fx-t24: 24px;
-  --fx-t32: 32px;
-  --fx-t36: 36px;
-  --fx-t38: 38px;
-  --fx-t40: 40px;
-  --fx-t52: 52px;
+  --fx-t13: 12.5px;
+  --fx-t14: 13px;
+  --fx-t15: 14px;
+  --fx-t17: 16px;
+  --fx-t20: 17px;
+  --fx-t24: 20px;
+  --fx-t32: 24px;
+  --fx-t36: 28px;
+  --fx-t38: 30px;
+  --fx-t40: 30px;
+  --fx-t52: 30px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fx-t13: 13px;
+    --fx-t14: 14px;
+    --fx-t15: 15px;
+    --fx-t17: 17px;
+    --fx-t20: 20px;
+    --fx-t24: 24px;
+    --fx-t32: 32px;
+    --fx-t36: 36px;
+    --fx-t38: 38px;
+    --fx-t40: 40px;
+    --fx-t52: 52px;
+  }
 }
 
 @media (min-width: 1280px) {

@@ -22,12 +22,12 @@ export default function ClientTopNav() {
   const brokerName = state.companySettings.companyName.replace(/\s*\(Pty\)\s*Ltd\.?$/i, "");
 
   return (
-    <header className="flex items-center gap-[12px] xl:gap-0">
+    <header className="flex items-center gap-[8px] sm:gap-[12px] xl:gap-0">
       <Link
         href="/portal"
-        className="flex h-[56px] min-w-0 items-center gap-[12px] rounded-full bg-card ps-[3px] pe-[22px] md:h-[70px] md:ps-[10px] md:max-xl:pe-[10px] xl:max-3xl:h-[56px] xl:max-3xl:ps-[3px]"
+        className="flex h-[48px] min-w-0 items-center gap-[10px] rounded-full bg-card ps-[3px] pe-[18px] sm:h-[56px] sm:gap-[12px] sm:pe-[22px] md:h-[70px] md:ps-[10px] md:max-xl:pe-[10px] xl:max-3xl:h-[56px] xl:max-3xl:ps-[3px]"
       >
-        <span className="flex size-[50px] shrink-0 xl:max-3xl:size-[44px] items-center justify-center rounded-full bg-orange text-fx-17 font-semibold tracking-wide text-white">
+        <span className="flex size-[42px] shrink-0 sm:size-[50px] xl:max-3xl:size-[44px] items-center justify-center rounded-full bg-orange text-fx-17 font-semibold tracking-wide text-white">
           {org ? initialsOf(org.name) : "—"}
         </span>
         <span className="min-w-0 leading-tight md:max-xl:hidden">

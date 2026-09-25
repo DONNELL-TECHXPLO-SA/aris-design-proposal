@@ -21,9 +21,9 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   actions,
 }) => {
   return (
-    <div className={cn("rounded-card bg-card p-[20px] md:p-[25px]", className)}>
+    <div className={cn("rounded-card bg-card p-[18px] md:p-[25px]", className)}>
       <CardHeader title={title} subtitle={desc || undefined} actions={actions} size="card" />
-      <div className="mt-[20px] space-y-[20px]">{children}</div>
+      <div className="mt-[16px] space-y-[16px] md:mt-[20px] md:space-y-[20px]">{children}</div>
     </div>
   );
 };

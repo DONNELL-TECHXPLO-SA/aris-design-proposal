@@ -18,7 +18,7 @@ export function Card({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { pad?: 20 | 25 }) {
   return (
-    <div className={cn("rounded-card bg-card", pad === 20 ? "p-[20px]" : "p-[25px]", className)} {...props}>
+    <div className={cn("rounded-card bg-card", pad === 20 ? "p-[16px] md:p-[20px]" : "p-[18px] md:p-[25px]", className)} {...props}>
       {children}
     </div>
   );
@@ -32,7 +32,7 @@ export function Tile({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { pad?: 16 | 20 }) {
   return (
-    <div className={cn("rounded-tile bg-tile", pad === 16 ? "p-[16px]" : "p-[20px]", className)} {...props}>
+    <div className={cn("rounded-tile bg-tile", pad === 16 ? "p-[14px] md:p-[16px]" : "p-[16px] md:p-[20px]", className)} {...props}>
       {children}
     </div>
   );
@@ -98,10 +98,10 @@ export function PageHeader({
   className?: string;
 }) {
   return (
-    <div className={cn("mb-[29px] flex flex-wrap items-end justify-between gap-[20px]", className)}>
+    <div className={cn("mb-[20px] flex flex-wrap items-end justify-between gap-[16px] md:mb-[29px] md:gap-[20px]", className)}>
       <div className="min-w-0">
         <h1 className="text-fx-36 leading-tight font-[500] tracking-[-0.02em] text-ink md:text-fx-52">{title}</h1>
-        {subtitle && <div className="mt-[14px] text-fx-17 font-normal text-secondary md:text-fx-20">{subtitle}</div>}
+        {subtitle && <div className="mt-[8px] text-fx-17 font-normal text-secondary md:mt-[14px] md:text-fx-20">{subtitle}</div>}
       </div>
       {actions && <div className="flex flex-wrap items-center gap-[15px]">{actions}</div>}
     </div>
@@ -237,7 +237,7 @@ export function KpiTile({
     <Comp
       {...(href && LinkComponent ? { href } : {})}
       className={cn(
-        "flex min-h-[197px] flex-col justify-between gap-[16px] rounded-tile p-[20px]",
+        "flex min-h-[150px] flex-col justify-between gap-[16px] rounded-tile p-[16px] md:min-h-[197px] md:p-[20px]",
         highlight ? "bg-fx-gradient" : "bg-tile",
         className,
       )}
@@ -395,7 +395,7 @@ export function PaymentCard({
   return (
     <div
       className={cn(
-        "relative flex h-[198px] w-[315px] shrink-0 flex-col justify-between overflow-hidden rounded-payment p-[20px] text-white",
+        "relative flex h-[198px] w-[315px] max-w-full shrink-0 flex-col justify-between overflow-hidden rounded-payment p-[20px] text-white",
         tone === "dark" ? "dark-card-texture" : "bg-orange",
         className,
       )}

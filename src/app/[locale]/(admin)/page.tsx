@@ -36,7 +36,7 @@ function HeroCard({
 }) {
   const top = attention.slice(0, 3);
   return (
-    <Card pad={20} className="flex min-h-[450px] flex-col justify-between gap-[20px]">
+    <Card pad={20} className="flex flex-col justify-between gap-[20px] md:min-h-[450px]">
       <div>
         <div className="flex min-h-[34px] items-center text-fx-20 font-normal text-secondary">{label}</div>
         <div className="tabular-numbers mt-[8px] text-fx-38 leading-none font-[500] text-ink">{count}</div>
@@ -44,7 +44,7 @@ function HeroCard({
         <div className="mt-[18px] grid grid-cols-2 gap-[15px]">{actions}</div>
       </div>
 
-      <Tile pad={16} className="flex min-h-[187px] flex-col justify-between gap-[4px]">
+      <Tile pad={16} className="flex flex-col justify-between gap-[10px] md:min-h-[187px] md:gap-[4px]">
         <div className="flex items-center gap-[8px] text-fx-17">
           <span className="font-medium text-ink">Needs attention</span>
           <span className="text-sep">|</span>
@@ -55,12 +55,13 @@ function HeroCard({
         {top.length === 0 ? (
           <p className="py-[20px] text-center text-fx-15 text-secondary">Nothing currently needs attention.</p>
         ) : (
-          <div className="grid grid-cols-3 gap-[15px]">
+          <div className="no-scrollbar -mx-[14px] flex snap-x snap-mandatory gap-[10px] overflow-x-auto px-[14px] sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-[15px] sm:overflow-visible sm:px-0">
             {top.map((claim) => {
               const color = statusColor(claim.status);
               return (
                 <MiniCard
                   key={claim.id}
+                  className="w-[68%] shrink-0 snap-start sm:w-auto"
                   href={`/claims/${claim.id}`}
                   LinkComponent={Link}
                   title={claim.reference.replace(/^ARB-/, "")}
@@ -93,7 +94,7 @@ function ListCard({
   empty: string;
 }) {
   return (
-    <Card pad={20} className="flex min-h-[450px] flex-col justify-between gap-[18px]">
+    <Card pad={20} className="flex flex-col justify-between gap-[18px] md:min-h-[450px]">
       <CardHeader title={title} subtitle={subtitle} />
       <Tile className="custom-scrollbar flex flex-1 flex-col gap-[10px] overflow-y-auto 2xl:h-[332px] 2xl:flex-none">
         {rows.length === 0 && <p className="text-fx-15 text-secondary">{empty}</p>}
@@ -125,8 +126,8 @@ function ListCard({
 
 function KpiCard({ children }: { children: React.ReactNode }) {
   return (
-    <Card pad={20} className="min-h-[450px]">
-      <div className="grid h-full grid-cols-1 gap-[15px] sm:grid-cols-2 2xl:auto-rows-[197px]">{children}</div>
+    <Card pad={20} className="md:min-h-[450px]">
+      <div className="grid h-full grid-cols-2 gap-[10px] md:gap-[15px] 2xl:auto-rows-[197px]">{children}</div>
     </Card>
   );
 }
@@ -140,7 +141,7 @@ function TableCard({ title, children }: { title: string; children: React.ReactNo
   );
 }
 
-const ROW1 = "grid grid-cols-1 gap-[25px] lg:grid-cols-2 2xl:grid-cols-3";
+const ROW1 = "grid grid-cols-1 gap-[16px] md:gap-[25px] lg:grid-cols-2 2xl:grid-cols-3";
 
 export default function AdminDashboardPage() {
   const { currentUser } = useAuth();
@@ -157,7 +158,7 @@ export default function AdminDashboardPage() {
   if (role === "administrator") {
     const attention = needsAttentionClaims(state.claims);
     return (
-      <div className="space-y-[25px]">
+      <div className="space-y-[16px] md:space-y-[25px]">
         <PageHeader title={`${greeting}, ${firstName}`} subtitle="Cross-broker overview — unscoped, every client." />
         <div className={ROW1}>
           <HeroCard
@@ -208,7 +209,7 @@ export default function AdminDashboardPage() {
     const byBroker = new Map<string, number>();
     attention.forEach((c) => byBroker.set(c.brokerId, (byBroker.get(c.brokerId) ?? 0) + 1));
     return (
-      <div className="space-y-[25px]">
+      <div className="space-y-[16px] md:space-y-[25px]">
         <PageHeader title={`${greeting}, ${firstName}`} subtitle="Portfolio-level exception view, across every Broker." />
         <div className={ROW1}>
           <HeroCard
@@ -262,7 +263,7 @@ export default function AdminDashboardPage() {
   const clientIds = [...new Set(ownClaims.map((c) => c.clientId))];
 
   return (
-    <div className="space-y-[25px]">
+    <div className="space-y-[16px] md:space-y-[25px]">
       <PageHeader title={`${greeting}, ${firstName}`} subtitle="Your claims, sorted by what needs action." />
       <div className={ROW1}>
         <HeroCard

@@ -100,7 +100,7 @@ const StepperItem = React.forwardRef<HTMLDivElement, StepperItemProps>(
         <div
           ref={ref}
           className={cn(
-            "group/step flex items-center gap-3 data-[orientation=horizontal]/stepper:flex-1 data-[orientation=horizontal]/stepper:flex-row data-[orientation=vertical]/stepper:flex-col data-[orientation=vertical]/stepper:gap-2 data-[orientation=vertical]/stepper:items-start",
+            "group/step flex items-center gap-3 max-sm:gap-[4px] data-[orientation=horizontal]/stepper:flex-1 data-[orientation=horizontal]/stepper:flex-row data-[orientation=vertical]/stepper:flex-col data-[orientation=vertical]/stepper:gap-2 data-[orientation=vertical]/stepper:items-start",
             className,
           )}
           data-state={state}
@@ -158,7 +158,7 @@ const StepperIndicator = React.forwardRef<HTMLDivElement, StepperIndicatorProps>
       <div
         ref={ref}
         className={cn(
-          "tabular-numbers relative flex size-[40px] shrink-0 items-center justify-center rounded-full bg-icon text-fx-15 font-medium text-ink",
+          "tabular-numbers relative flex size-[28px] shrink-0 sm:size-[40px] items-center justify-center rounded-full bg-icon text-fx-15 font-medium text-ink",
           "data-[state=active]:bg-dark data-[state=active]:text-on-dark",
           "data-[state=completed]:bg-orange data-[state=completed]:text-white",
           className,
@@ -174,7 +174,7 @@ const StepperIndicator = React.forwardRef<HTMLDivElement, StepperIndicatorProps>
               {step}
             </span>
             <CheckLineIcon
-              className="absolute size-[18px] scale-0 opacity-0 group-data-[state=completed]/step:scale-100 group-data-[state=completed]/step:opacity-100"
+              className="absolute size-[14px] scale-0 sm:size-[18px] opacity-0 group-data-[state=completed]/step:scale-100 group-data-[state=completed]/step:opacity-100"
               aria-hidden="true"
             />
             {isLoading && (
@@ -217,7 +217,7 @@ const StepperSeparator = React.forwardRef<HTMLDivElement, StepperSeparatorProps>
       ref={ref}
       className={cn(
         "m-0.5 rounded-full bg-icon",
-        "group-data-[orientation=horizontal]/stepper:h-[4px] group-data-[orientation=horizontal]/stepper:min-w-[24px] group-data-[orientation=horizontal]/stepper:w-full group-data-[orientation=horizontal]/stepper:flex-1",
+        "group-data-[orientation=horizontal]/stepper:h-[4px] group-data-[orientation=horizontal]/stepper:min-w-[4px] sm:group-data-[orientation=horizontal]/stepper:min-w-[24px] group-data-[orientation=horizontal]/stepper:w-full group-data-[orientation=horizontal]/stepper:flex-1",
         "group-data-[orientation=vertical]/stepper:h-full group-data-[orientation=vertical]/stepper:w-[4px] group-data-[orientation=vertical]/stepper:flex-none",
         "group-data-[state=completed]/step:bg-orange",
         className,

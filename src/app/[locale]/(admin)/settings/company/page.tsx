@@ -42,7 +42,7 @@ export default function CompanySettingsPage() {
               <Label>Disclaimer Text</Label>
               <TextArea rows={3} value={form.disclaimerText} onChange={(v) => setForm({ ...form, disclaimerText: v })} />
             </div>
-            <div className="grid grid-cols-2 gap-[20px]">
+            <div className="grid grid-cols-1 gap-[20px] sm:grid-cols-2">
               <div>
                 <Label>VAT Rate (%)</Label>
                 <Input type="number" value={form.vatRate} onChange={(e) => setForm({ ...form, vatRate: Number(e.target.value) })} />

@@ -13,9 +13,9 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
   return (
     <RequireAuth portal="client">
       <div className="h-dvh overflow-hidden bg-page sm:p-[12px] lg:p-[24px] xl:p-[16px] 2xl:p-[20px] 3xl:px-[100px] 3xl:py-[110px]">
-        <div className="mx-auto flex h-full max-w-[1800px] flex-col bg-frame p-[16px] sm:rounded-frame md:p-[25px] xl:p-[20px] 3xl:p-[25px]">
+        <div className="mx-auto flex h-full max-w-[1800px] flex-col bg-frame p-[12px] sm:rounded-frame sm:p-[16px] md:p-[25px] xl:p-[20px] 3xl:p-[25px]">
           <ClientTopNav />
-          <main className="custom-scrollbar mt-[25px] w-full min-h-0 flex-1 overflow-y-auto pb-[100px] md:pb-0 xl:mt-[20px] 3xl:mt-[40px]">
+          <main className="custom-scrollbar mt-[16px] w-full md:mt-[25px] min-h-0 flex-1 overflow-y-auto pb-[100px] md:pb-0 xl:mt-[20px] 3xl:mt-[40px]">
             {children}
           </main>
         </div>

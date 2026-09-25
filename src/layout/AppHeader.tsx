@@ -40,11 +40,11 @@ const AppHeader: React.FC = () => {
   }, []);
 
   return (
-    <header className="flex items-center gap-[12px] xl:gap-0">
+    <header className="flex items-center gap-[8px] sm:gap-[12px] xl:gap-0">
       {/* Menu pill (below xl — opens the sidebar drawer) */}
       <button
         type="button"
-        className="flex size-[56px] shrink-0 items-center justify-center rounded-full bg-card text-ink md:size-[70px] xl:hidden"
+        className="flex size-[48px] shrink-0 items-center justify-center rounded-full bg-card text-ink sm:size-[56px] md:size-[70px] xl:hidden"
         onClick={toggleMobileSidebar}
         aria-label={t("toggleSidebar")}
       >
@@ -52,14 +52,14 @@ const AppHeader: React.FC = () => {
       </button>
 
       {/* ARIS Brokers logo (from arisbrokers.co.za's nav bar), sized to the pill row */}
-      <Link href="/" aria-label="ARIS Brokers — home" className="flex shrink-0 items-center">
+      <Link href="/" aria-label="ARIS Brokers — home" className="flex min-w-0 shrink items-center">
         <Image
           src="/images/logo/aris-brokers.png"
           alt="ARIS Brokers"
           width={624}
           height={203}
           priority
-          className="h-[36px] w-auto sm:h-[48px] md:h-[60px] xl:max-3xl:h-[50px]"
+          className="h-[30px] w-auto 2xsm:h-[36px] sm:h-[48px] md:h-[60px] xl:max-3xl:h-[50px]"
         />
       </Link>
 
@@ -89,7 +89,7 @@ const AppHeader: React.FC = () => {
       </div>
 
       {/* Icon pill */}
-      <div className="relative ms-auto flex h-[56px] shrink-0 items-center justify-evenly gap-[18px] rounded-full bg-card px-[16px] md:h-[70px] md:gap-[27px] md:w-[185px] md:px-[8px] xl:ms-0 xl:max-3xl:h-[56px] xl:max-3xl:w-[150px] xl:max-3xl:gap-[20px]">
+      <div className="relative ms-auto flex h-[48px] shrink-0 items-center justify-evenly gap-[14px] rounded-full bg-card px-[14px] sm:h-[56px] sm:gap-[18px] sm:px-[16px] md:h-[70px] md:gap-[27px] md:w-[185px] md:px-[8px] xl:ms-0 xl:max-3xl:h-[56px] xl:max-3xl:w-[150px] xl:max-3xl:gap-[20px]">
         <button
           type="button"
           onClick={() => {
@@ -100,7 +100,7 @@ const AppHeader: React.FC = () => {
           aria-expanded={isSearchOpen}
           className="flex items-center justify-center text-ink transition-opacity hover:opacity-80"
         >
-          <Search size={26} strokeWidth={1.5} className="xl:max-3xl:size-[22px]" />
+          <Search size={26} strokeWidth={1.5} className="max-sm:size-[22px] xl:max-3xl:size-[22px]" />
         </button>
         <NotificationDropdown />
 

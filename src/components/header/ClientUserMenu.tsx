@@ -64,9 +64,9 @@ export default function ClientUserMenu() {
         onClick={() => setIsOpen((o) => !o)}
         aria-label="Account menu"
         aria-expanded={isOpen}
-        className="dropdown-toggle flex h-[56px] items-center gap-[12px] rounded-full bg-card p-[3px] text-start md:h-[70px] md:p-[10px] lg:w-[260px] lg:p-0 lg:px-[10px] xl:max-3xl:h-[56px] xl:max-3xl:w-[220px] xl:max-3xl:px-[6px]"
+        className="dropdown-toggle flex h-[48px] items-center gap-[12px] rounded-full bg-card p-[3px] text-start sm:h-[56px] md:h-[70px] md:p-[10px] lg:w-[260px] lg:p-0 lg:px-[10px] xl:max-3xl:h-[56px] xl:max-3xl:w-[220px] xl:max-3xl:px-[6px]"
       >
-        <span className="flex size-[50px] shrink-0 items-center justify-center rounded-full bg-dark text-fx-17 xl:max-3xl:size-[44px] font-semibold text-on-dark">
+        <span className="flex size-[42px] shrink-0 items-center justify-center rounded-full bg-dark text-fx-17 sm:size-[50px] xl:max-3xl:size-[44px] font-semibold text-on-dark">
           {initialsOf(currentUser.name)}
         </span>
         <span className="hidden min-w-0 flex-col justify-center pe-[4px] lg:flex">

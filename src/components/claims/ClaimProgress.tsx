@@ -18,19 +18,47 @@ interface OverallStage {
 
 // The overall claim journey, condensed from the 16-stage status list (process-flow.md)
 // into the milestones most users recognise. Multiple fine-grained statuses share a phase.
+// On phones the step labels are dropped (six won't fit across 343px) and the current
+// milestone is spelled out underneath instead.
 const OVERALL_STAGES: OverallStage[] = [
-  { label: "Submitted", statuses: ["partially_submitted", "submitted", "documents_outstanding"] },
+  {
+    label: "Submitted",
+    statuses: ["partially_submitted", "submitted", "documents_outstanding"],
+  },
   { label: "With Insurer", statuses: ["submitted_to_insurer"] },
-  { label: "Assessment", statuses: ["under_assessment", "assessment_completed"] },
-  { label: "Decision", statuses: ["awaiting_insurer_decision", "repudiated", "within_excess", "not_taken_up"] },
-  { label: "Settlement", statuses: ["settled", "awaiting_signed_aol", "awaiting_excess_invoice_and_pop", "awaiting_insurer_payment"] },
+  {
+    label: "Assessment",
+    statuses: ["under_assessment", "assessment_completed"],
+  },
+  {
+    label: "Decision",
+    statuses: [
+      "awaiting_insurer_decision",
+      "repudiated",
+      "within_excess",
+      "not_taken_up",
+    ],
+  },
+  {
+    label: "Settlement",
+    statuses: [
+      "settled",
+      "awaiting_signed_aol",
+      "awaiting_excess_invoice_and_pop",
+      "awaiting_insurer_payment",
+    ],
+  },
   { label: "Closed", statuses: ["closed"] },
 ];
 
 function activeStageIndex(claim: Claim): number {
   const resolved: ClaimStatus =
-    claim.status === "disputed" ? (claim.preDisputeStatus ?? "awaiting_insurer_decision") : claim.status;
-  const index = OVERALL_STAGES.findIndex((stage) => stage.statuses.includes(resolved));
+    claim.status === "disputed"
+      ? (claim.preDisputeStatus ?? "awaiting_insurer_decision")
+      : claim.status;
+  const index = OVERALL_STAGES.findIndex((stage) =>
+    stage.statuses.includes(resolved),
+  );
   return index === -1 ? 3 : index; // fall back to "Decision" for unknown/edge states
 }
 
@@ -39,16 +67,28 @@ export default function ClaimProgress({ claim }: { claim: Claim }) {
 
   return (
     <ComponentCard title="Overall Progress">
-      <div className="custom-scrollbar overflow-x-auto rounded-tile bg-tile p-[20px]">
-        <Stepper value={active + 1} orientation="horizontal" className="min-w-max pt-1">
+      <div className="custom-scrollbar overflow-x-auto rounded-tile bg-tile p-[12px] sm:p-[16px] md:p-[20px]">
+        <Stepper
+          value={active + 1}
+          orientation="horizontal"
+          className="pt-1 sm:min-w-max"
+        >
           {OVERALL_STAGES.map((stage, i) => (
             <StepperItem key={stage.label} step={i + 1}>
               <StepperIndicator />
-              <StepperTitle>{stage.label}</StepperTitle>
+              <StepperTitle className="max-sm:hidden">
+                {stage.label}
+              </StepperTitle>
               {i < OVERALL_STAGES.length - 1 && <StepperSeparator />}
             </StepperItem>
           ))}
         </Stepper>
+        <p className="mt-[12px] text-fx-15 text-ink sm:hidden">
+          <span className="text-secondary">
+            Stage {active + 1} of {OVERALL_STAGES.length}:
+          </span>{" "}
+          {OVERALL_STAGES[active].label}
+        </p>
       </div>
       <div className="flex items-center gap-[12px]">
         <span className="text-fx-15 text-secondary">Current status</span>

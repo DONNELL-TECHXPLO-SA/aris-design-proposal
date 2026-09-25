@@ -45,7 +45,8 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      if (!mobile) {
+      // The drawer only exists below xl (AppSidebar); close it once the icon column shows.
+      if (window.innerWidth >= 1280) {
         setIsMobileOpen(false);
       }
     };

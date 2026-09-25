@@ -84,7 +84,7 @@ export default function GenerateReportPage() {
                 />
               </div>
             )}
-            <div className="grid grid-cols-2 gap-[20px]">
+            <div className="grid grid-cols-1 gap-[20px] sm:grid-cols-2">
               <div>
                 <Label>Period Start</Label>
                 <input type="date" value={periodStart} onChange={(e) => setPeriodStart(e.target.value)} className="h-[54px] w-full rounded-field border border-line bg-card px-[16px] text-fx-17 text-ink outline-none focus:border-dark" />

@@ -117,7 +117,7 @@ export default function NotificationDropdown() {
         onClick={handleClick}
         aria-label={t("title")}
       >
-        <IconBell size={26} strokeWidth={1.5} className="xl:max-3xl:size-[22px]" />
+        <IconBell size={26} strokeWidth={1.5} className="max-sm:size-[22px] xl:max-3xl:size-[22px]" />
         {/* 7px orange dot at top right */}
         <span
           className={cn(
@@ -130,7 +130,7 @@ export default function NotificationDropdown() {
       <Dropdown
         isOpen={isOpen}
         onClose={closeDropdown}
-        className="absolute top-[calc(100%+32px)] -end-[80px] flex h-[480px] w-[360px] max-w-[calc(100vw-32px)] flex-col p-[10px]"
+        className="absolute top-[calc(100%+32px)] -end-[80px] flex h-[480px] w-[360px] max-w-[calc(100vw-32px)] flex-col p-[10px] max-sm:fixed max-sm:inset-x-[12px] max-sm:top-[72px] max-sm:h-[min(480px,calc(100dvh-96px))] max-sm:w-auto max-sm:max-w-none"
       >
         <div className="flex items-center justify-between px-[10px] pt-[6px] pb-[12px]">
           <h5 className="text-fx-20 font-medium text-ink">

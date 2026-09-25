@@ -12,7 +12,7 @@ export default function ClientBottomNav() {
 
   return (
     <nav className="fixed inset-x-[12px] bottom-[calc(12px+env(safe-area-inset-bottom))] z-40 flex gap-[4px] rounded-full bg-card p-[5px] md:hidden">
-      {CLIENT_NAV_ITEMS.map(({ href, label, icon: Icon }) => {
+      {CLIENT_NAV_ITEMS.map(({ href, shortLabel, icon: Icon }) => {
         const isActive = isClientNavActive(pathname, href);
         return (
           <Link
@@ -20,12 +20,12 @@ export default function ClientBottomNav() {
             href={href}
             aria-current={isActive ? "page" : undefined}
             className={cn(
-              "flex h-[56px] flex-1 flex-col items-center justify-center gap-[2px] rounded-full text-fx-12 font-medium",
+              "flex h-[56px] min-w-0 flex-1 flex-col items-center justify-center gap-[2px] rounded-full text-fx-12 font-medium",
               isActive ? "bg-dark text-on-dark" : "text-secondary",
             )}
           >
             <Icon size={22} strokeWidth={1.5} />
-            {label}
+            {shortLabel}
           </Link>
         );
       })}

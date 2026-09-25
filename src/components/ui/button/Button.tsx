@@ -15,7 +15,7 @@ interface ButtonProps {
 // pill ("Request" / "+ Add new"). md = 57px / 20px text; sm = 44px / 17px text.
 const SIZE = {
   sm: "h-[44px] px-[20px] text-fx-17 gap-[8px]",
-  md: "h-[57px] px-[32px] text-fx-20 gap-[10px]",
+  md: "h-[50px] px-[22px] text-fx-20 gap-[10px] md:h-[57px] md:px-[32px]",
 };
 
 const VARIANT = {

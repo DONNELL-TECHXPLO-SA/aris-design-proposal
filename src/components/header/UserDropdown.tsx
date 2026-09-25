@@ -84,9 +84,9 @@ export default function UserDropdown() {
       <button
         onClick={toggleDropdown}
         aria-expanded={isOpen}
-        className="dropdown-toggle flex h-[56px] items-center gap-[12px] rounded-full bg-card p-[3px] text-start md:h-[70px] md:w-[260px] md:p-0 md:px-[10px] xl:max-3xl:h-[56px] xl:max-3xl:w-[220px] xl:max-3xl:px-[6px]"
+        className="dropdown-toggle flex h-[48px] items-center gap-[12px] rounded-full bg-card p-[3px] text-start sm:h-[56px] md:h-[70px] md:w-[260px] md:p-0 md:px-[10px] xl:max-3xl:h-[56px] xl:max-3xl:w-[220px] xl:max-3xl:px-[6px]"
       >
-        <span className="size-[50px] shrink-0 overflow-hidden rounded-full xl:max-3xl:size-[44px]">
+        <span className="size-[42px] shrink-0 overflow-hidden rounded-full sm:size-[50px] xl:max-3xl:size-[44px]">
           <Image
             width={50}
             height={50}
